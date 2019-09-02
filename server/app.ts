@@ -22,6 +22,7 @@ app.get("/settings", (req: express.Request, res: express.Response, next: express
 
 app.use("/api/light", light);
 app.use("/api/dht", dht);
+
 app.use("/api/custom_button", custom_button);
 
 app.listen(7000, () => {

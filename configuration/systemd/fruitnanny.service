@@ -1,6 +1,7 @@
 [Unit]
 Description=FruitNanny app service
 After=network.target
+Wants=audio.service video.service janus.service nginx.service
 
 [Service]
 User=pi
