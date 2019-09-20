@@ -1,11 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+const config = require("../../fruitnanny_config");
 const express = require("express");
-const fs = require("fs");
+const cp = require("child_process");
 let router = express.Router();
 router.get("/current", (req, res, next) => {
-    let jsonText = fs.readFileSync("/tmp/fruitnanny_dht.txt");
-    let json = JSON.parse(jsonText.toString());
-    res.json(json);
+    let jsonText = require('/tmp/fruitnanny_dht.txt');
+    
 });
 exports.default = router;

@@ -1,12 +1,21 @@
 #!/usr/bin/python
 import sys
+import json
 import Adafruit_DHT
 
 pin = 24
 humidity, temperature = Adafruit_DHT.read_retry(Adafruit_DHT.DHT11, pin)
 if humidity is not None and temperature is not None:
-    print('{0:0.1f} {1:0.1f}'.format(temperature, humidity))
+    output = {
+            'temperature': '{0:0.1f}'.format(temperature),
+            'humidity': '{0:0.1f}'.format(humidity)
+            }
+    print(json.dumps(output))
+
 else:
-    print('Failed to get reading. Try again!')
+    output = {
+            'error':'Failed to get reading. Try again!'
+            };
+    print(json.dumps(output));  
     sys.exit(1)
 

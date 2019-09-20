@@ -6,8 +6,9 @@ After=network.target
 User=pi
 Type=simple
 ExecStart=/opt/fruitnanny/bin/audio.sh
+ExecStop=/opt/fruitnanny/bin/audio.sh stop
 LimitNOFILE=65536
-Restart=always
+#Restart=always
 KillSignal=SIGTERM
 KillMode=process
 

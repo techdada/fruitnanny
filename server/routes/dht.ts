@@ -1,8 +1,7 @@
 "use strict";
 
 import express = require("express");
-import * as cp from "child_process";
-import * as config from "../../fruitnanny_config";
+import fs = require("fs");
 let router = express.Router();
 
 router.get("/current", (req: express.Request, res: express.Response, next: express.NextFunction) => {
@@ -11,16 +10,10 @@ router.get("/current", (req: express.Request, res: express.Response, next: expre
     // let hum = Math.random() * 100;
     // let result = { humidity: hum, temperature: temp };
     // res.json(result);
-console.log("Sensor Type: " + config.sensor_type);
-    if (config.sensor_type == undefined) config.sensor_type = "dht22";
-    let dhtscript = "bin/" + config.sensor_type + ".py";
-    cp.exec(dhtscript, (err, stdout, stderr) => {
-        let values = stdout.split(" ");
-        let t = values[0];
-        let h = values[1];
-        let result = { humidity: h, temperature: t };
-        res.json(result);
-    });
+    let jsonText = fs.readFileSync("/tmp/fruitnanny_dht.txt");
+    let json = JSON.parse(jsonText.toString());
+    res.json(json);
+
 });
 
 export default router;
