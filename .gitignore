@@ -45,3 +45,7 @@ jspm_packages
 
 # Typescript
 .tscache/
+
+# Local archive
+.archive/
+
