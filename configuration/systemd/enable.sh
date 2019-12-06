@@ -1,7 +1,7 @@
 #!/bin/bash
 
-services="audio video janus fruitnanny"
-mydir=`dirname $0`
+services="audio video janus fruitnanny dht"
+mydir=/opt/fruitnanny/configuration/systemd
 
 while [ ! -z "$1" ] ; do
   case "$1" in

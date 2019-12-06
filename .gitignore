@@ -49,3 +49,15 @@ jspm_packages
 # Local archive
 .archive/
 
+# mqtt configuration
+mqtt_config.txt
+
+
+#python cache
+bin/__pycache__
+
+*.pyc
+
+cafile.pem
+
+*.code-workspace
