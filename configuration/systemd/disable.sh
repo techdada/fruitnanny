@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="audio video janus fruitnanny"
+services="audio video janus fruitnanny live_jpeg radar dht"
 
 while [ ! -z "$1" ] ; do
   case "$1" in

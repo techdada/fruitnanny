@@ -1,6 +1,6 @@
 #!/bin/bash
 
-services="audio video janus fruitnanny dht"
+services="janus fruitnanny dht radar audio video live_jpeg"
 mydir=/opt/fruitnanny/configuration/systemd
 
 while [ ! -z "$1" ] ; do
@@ -18,7 +18,7 @@ while [ ! -z "$1" ] ; do
 done
 
 for service in $services ; do
-  ln -s $mydir/$service.service /etc/systemd/system/
+  cp -p $mydir/$service.service /etc/systemd/system/
 done
 
 systemctl daemon-reload

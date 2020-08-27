@@ -1,0 +1,17 @@
+[Unit]
+Description=FruitNanny live jpeg service
+After=network.target
+
+[Service]
+User=pi
+Type=simple
+ExecStart=/opt/fruitnanny/bin/live_jpeg.sh
+ExecStop=/opt/fruitnanny/bin/live_jpeg.sh stop
+LimitNOFILE=65536
+Restart=always
+KillSignal=SIGTERM
+KillMode=process
+
+[Install]
+WantedBy=multi-user.target
+

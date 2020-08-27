@@ -1,13 +1,12 @@
 [Unit]
-Description=FruitNanny DHT Humidity and Temperature service
+Description=FruitNanny Radar motion detection service
 After=network.target
 
 [Service]
 Type=simple
-ExecStart=/usr/bin/python3 /opt/fruitnanny/bin/dht11_mqtt.py
+ExecStart=/usr/bin/python3 /opt/fruitnanny/bin/radar_mqtt.py
 WorkingDirectory=/opt/fruitnanny
 #Restart=always
-User=pi
 KillSignal=SIGTERM
 KillMode=process
 
